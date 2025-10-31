@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -76,7 +77,11 @@ Column(modifier = Modifier.fillMaxSize().wrapContentHeight().padding(15.dp),
         val person= Person(txtName.toString(),txtYear.toInt())
         val personJson=Uri.encode(Gson().toJson(person))
         navControl.navigate("nextscreen/$personJson")
-    }) { Text("Calculate Age")}
+    },
+        colors = buttonColors(
+            containerColor = Color(0xFF1565C0),   // background color
+            contentColor = Color.White            // text (content) color
+        )) { Text("Calculate Age")}
 }
 }
 @Composable
@@ -87,7 +92,11 @@ fun nextScreen(nav: NavController, person: Person){
         verticalArrangement = Arrangement.spacedBy (15.dp )){
             Text("Name:${person.pName}")
             Text("Age:$age")
-                Button(onClick = {nav.popBackStack()}) {Text("Go back") }
+                Button(onClick = {nav.popBackStack()},
+                    colors = buttonColors(
+                        containerColor = Color(0xFF1565C0),   // background color
+                        contentColor = Color.White            // text (content) color
+                    )) {Text("Go back") }
 
     }
 
