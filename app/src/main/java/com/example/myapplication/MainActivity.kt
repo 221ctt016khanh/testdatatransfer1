@@ -76,6 +76,7 @@ Column(modifier = Modifier.fillMaxSize().wrapContentHeight().padding(15.dp),
     Button(onClick = {
         val person= Person(txtName.toString(),txtYear.toInt())
         val personJson=Uri.encode(Gson().toJson(person))
+
         navControl.navigate("nextscreen/$personJson")
     },
         colors = buttonColors(
