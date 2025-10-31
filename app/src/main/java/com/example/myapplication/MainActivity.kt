@@ -89,15 +89,18 @@ Column(modifier = Modifier.fillMaxSize().wrapContentHeight().padding(15.dp),
 fun nextScreen(nav: NavController, person: Person){
     val age:Int= LocalDate.now().year-person.pYob
             Column (modifier = Modifier.fillMaxSize().wrapContentHeight().padding(15.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy (15.dp )){
-            Text("Name:${person.pName}")
-            Text("Age:$age")
-                Button(onClick = {nav.popBackStack()},
-                    colors = buttonColors(
-                        containerColor = Color(0xFF1565C0),   // background color
-                        contentColor = Color.White            // text (content) color
-                    )) {Text("Go back") }
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy (15.dp ))
+            {
+                    Text("Name:${person.pName}")
+                    Text("Age:$age")
+                    Button(
+                            onClick = {nav.popBackStack()},
+                            colors = buttonColors(
+                            containerColor = Color(0xFF1565C0),   // background color
+                            contentColor = Color.White            // text (content) color
+                    ))
+                    {Text("Go back") }
 
     }
 
